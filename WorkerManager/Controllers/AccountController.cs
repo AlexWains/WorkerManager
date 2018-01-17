@@ -33,9 +33,6 @@ namespace WorkerManager.Controllers
             }
         }
 
-
-
-
         public bool AdminLogin(string IdentityCard, string Password)
         {
             using (var db = new AdminContext())
@@ -50,6 +47,14 @@ namespace WorkerManager.Controllers
                 }
             }
             return false;
+        }
+
+        public void DeleteDB()
+        {
+            using (var db = new AdminContext())
+            {
+                db.Database.Delete();
+            }
         }
         
     }

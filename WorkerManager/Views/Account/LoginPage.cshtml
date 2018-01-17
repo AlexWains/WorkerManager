@@ -6,6 +6,22 @@
 
 <html>
 <head>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js%22%3E"></script>
+    <script>
+        function LoginClick() {
+            var id = document.getElementById("feild_id");
+            var password = document.getElementById("feild_pass");
+            $.get("/account/AdminLogin?IdentityCard=" + id + "&password=" + password, function (data) {
+                if (data == "True") {
+                    alert("Login Successful");
+                }
+                else {
+                    alert("something");
+                }
+            })
+
+        }
+    </script>
 
     <meta name="viewport" content="width=device-width" />
     <title></title>
