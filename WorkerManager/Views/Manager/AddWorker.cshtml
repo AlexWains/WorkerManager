@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script>
+        function AddWorker() {
+            var id = document.getElementById("idCard").value;
+            var first = document.getElementById("firstName").value;
+            var sir = document.getElementById("sirName").value;
+            var phone = document.getElementById("phone").value;
+            var mail = document.getElementById("mail").value;
+            $.get("/Manager/WorkerAdd?IdCard=" + id + "&FirstName=" + first + "&SirName=" + sir + "&Phone=" + phone + "&Mail=" + mail, function (data) {
+                if (data == "True")
+                    alert("Worker Added Successfully")
+                else
+                    aler("Worker Already Exists")
+            })
+
+        }
+    </script>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <input id="idCard" type="text" />
+        <input id="firstName" type="text" />
+        <input id="sirName" type="text" />
+        <input id="phone" type="text" />
+        <input id="mail" type="text" />
+        <button onclick="AddWorker()">Add New Worker</button>
+    </div>
+</body>
+</html>

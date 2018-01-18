@@ -6,15 +6,30 @@
 
 <html>
 <head>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script>
+        function RegisterAdmin() {
+            var id = document.getElementById("Admin_id").value;
+            var name = document.getElementById("Admin_name").value;
+            var password = document.getElementById("Admin_password").value;
+            $.get("/Account/AdminRegister?IdentityCard=" + id + "&Name=" + name + "&Password=" + password /*function- will redirect to home page*/)
+
+        }
+    </script>
     <meta name="viewport" content="width=device-width" />
     <title></title>
+
 </head>
 <body>
     <div>
         Fill all feilds acordingly:<br />
-        <input id="Admin_id" type="text" />
-        <input id="Admin_name" type="text" />
-        <input id="Admin_password" type="password" />
+        ID: <br />
+        <input id="Admin_id" type="text" /><br />
+        Full Name: <br />
+        <input id="Admin_name" type="text" /><br />
+        Password: <br />
+        <input id="Admin_password" type="password" /><br />
+        <button id="btn_reg" onclick="RegisterAdmin()">Register</button>
     </div>
 </body>
 </html>

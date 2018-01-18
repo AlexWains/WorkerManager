@@ -6,20 +6,22 @@
 
 <html>
 <head>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js%22%3E"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
     <script>
         function LoginClick() {
-            var id = document.getElementById("feild_id");
-            var password = document.getElementById("feild_pass");
-            $.get("/account/AdminLogin?IdentityCard=" + id + "&password=" + password, function (data) {
+            var id = document.getElementById("field_id").value;
+            var password = document.getElementById("field_pass").value;
+            $.get("/Account/AdminLogin?identitycard="+id+"&password="+password, function (data) {
                 if (data == "True") {
-                    alert("Login Successful");
+                    alert("Login Successful"); //will redirect to home page
                 }
                 else {
                     alert("something");
                 }
             })
-
+        }
+        function ToRegister() {
+            window.location.href = "/Account/RegisterPage";
         }
     </script>
 
@@ -29,10 +31,13 @@
 </head>
 <body>
     <div>
-        
-        <input id="feild_id" type="text" />
-        <input id="feild_pass" type="password" />
-        <button onclick="LoginClick()">Login</button>
+        Enter ID: <br />
+        <input id="field_id" type="text" /><br />
+        Enter Password:<br />
+        <input id="field_pass" type="password" /><br />
+        <button id="btnLog" onclick="LoginClick()">Login</button>
+        <p style="font-size:smaller">Don't have an account? Consider registering</p>
+        <button id="btnToRegister" onclick="ToRegister()">Register</button>
     </div>
 </body>
 </html>

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
 namespace WorkerManager.Models
 {
+    //Admin class
+    //Allowed to add and remove managers, workers
     public class Admin
     {
         public int Id { get; set; }
@@ -18,4 +19,6 @@ namespace WorkerManager.Models
     {
         public DbSet<Admin> Admins { get; set; }
     }
+
+    
 }
